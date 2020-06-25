@@ -24,7 +24,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v3.0
       with:
         # Name of the Docker image
-        image: supportpp/perspectiveBot
+        image: supportpp/perspective-bot
         # Tag override for Docker image
         tag: latest
         dockerfile: Dockerfile
