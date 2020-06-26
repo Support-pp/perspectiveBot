@@ -45,13 +45,13 @@ export class DiscordTS {
       console.log(score);
 
       if (score >= 0.7) {
-        msg.react("517818221651427365");
+        msg.react(process.env.DISCORD_CHANNEL_ID || "");
       }
       if (score >= 0.85) {
         msg.reply("ihre Nachricht wurde gelöscht! Bitte bleibe freundlich!");
         const webhookClient = new WebhookClient(
-          "725804372533182495",
-          "BOv_g9Dji5bFzGy3fUEaermHwW8Z9QS0KRryce988no4f0DIOlbJCSB9WskZKCcNtihf"
+          process.env.DISCORD_ID || "",
+          process.env.DISCORD_TOKEN || ""
         );
 
         webhookClient.send(msg.content, {
@@ -66,8 +66,10 @@ export class DiscordTS {
 }
 
 /**
- * :vertical_traffic_light:
  * env
  * PERSPECTIVE_KEY
  * TOKEN
+ * DISCORD_ID
+ * DISCORD_TOKEN
+ * DISCORD_CHANNEL_ID
  */
