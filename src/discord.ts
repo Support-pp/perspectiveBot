@@ -48,7 +48,7 @@ export class DiscordTS {
         msg.react(process.env.DISCORD_CHANNEL_ID || "");
       }
       if (score >= 0.85) {
-        msg.reply("ihre Nachricht wurde gelöscht! Bitte bleibe freundlich!");
+        msg.reply("deine Nachricht wurde gelöscht! Bitte bleibe freundlich!");
         const webhookClient = new WebhookClient(
           process.env.DISCORD_ID || "",
           process.env.DISCORD_TOKEN || ""
