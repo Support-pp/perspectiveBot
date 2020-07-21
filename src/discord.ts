@@ -1,5 +1,14 @@
 import { Client, Message, Emoji, WebhookClient } from "discord.js";
 var request = require("request");
+const allowedChannels = [
+  "309033097180217349", //sp-en
+  "303664307667730440", //sp-de
+  "303663158923493376", //lobby
+  "488559618352611333", //offtopic
+  "344094121729851392", //pro
+  "643080361487761438", //labor
+  "348417474905243651", //test
+];
 
 export class DiscordTS {
   public client: Client;
@@ -17,9 +26,12 @@ export class DiscordTS {
 
     this.client.on("message", (msg: Message) => {
       console.log("> " + msg.content);
-      // console.log(msg.client?.user?.id + " :: " + msg.author.id);
+
       if (msg.webhookID) return;
-      this.analyseToxicity(msg);
+
+      if (allowedChannels.includes(msg.channel.id)) {
+        this.analyseToxicity(msg);
+      }
     });
 
     this.client.login(process.env.TOKEN);
